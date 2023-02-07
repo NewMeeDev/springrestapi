@@ -73,4 +73,9 @@ public class EmployeeController {
 	public ResponseEntity<List<Employee>> getEmployeesByName(@RequestParam String name) {
 		return new ResponseEntity<List<Employee>>(empService.getEmployeesByName(name), HttpStatus.OK);
 	}
+	
+	@GetMapping("employees/filterByNameAndLocation")
+	public ResponseEntity<List<Employee>> getEmployeesByName(@RequestParam String name, @RequestParam String location) {
+		return new ResponseEntity<List<Employee>>(empService.getEmployeesByName(name, location), HttpStatus.OK);
+	}
 }

@@ -16,5 +16,7 @@ public interface EmployeeService {
 	
 	Employee udateEmployee(Employee employee);
 	
-	List<Employee> getEmployeesByName(String name);
+	List<Employee> getEmployeesByName(String name); 
+	
+	List<Employee> getEmployeesByName(String name, String location);
 }
