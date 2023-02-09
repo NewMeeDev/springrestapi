@@ -15,4 +15,7 @@ public interface EmployeeRepository extends JpaRepository<Employee, Long> {
 	// SELECT * FROM table WHERE name="Marc" AND location="Germany"
 	List<Employee> findByNameAndLocation(String name, String location);
 	
+	// SELECT * FROM table WHERE name LIKE %ram%'
+	List<Employee> findBynameContaining(String keyword);
+	
 }

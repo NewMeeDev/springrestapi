@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "953b5832-c11f-46fc-b4f6-73b97e22c9b1",
+		"_postman_id": "a9262991-9616-4538-828b-b196faabb7f4",
 		"name": "springrestapi",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
@@ -146,6 +146,48 @@
 					"path": [
 						"employees",
 						"filterByName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Employees by Name and Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees/filterByName",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"filterByName"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Employees by Keyword",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees/filterByKeyword?name=arc",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"filterByKeyword"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "arc"
+						}
 					]
 				}
 			},

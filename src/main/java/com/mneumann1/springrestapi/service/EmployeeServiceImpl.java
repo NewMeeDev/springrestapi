@@ -58,10 +58,19 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
 	@Override
-	public List<Employee> getEmployeesByName(String name, String location) {
+	public List<Employee> getEmployeesByNameAndLocation(String name, String location) {
 		return empRepository.findByNameAndLocation(name, location);
 	}
 
+
+	@Override
+	public List<Employee> getEmployeesByKeyword(String name) {
+		return empRepository.findBynameContaining(name);
+	}
+	
+	
+	
+	
 }
 
 
