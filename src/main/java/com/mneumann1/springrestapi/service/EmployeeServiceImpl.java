@@ -1,9 +1,14 @@
 package com.mneumann1.springrestapi.service;
 
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.mneumann1.springrestapi.model.Employee;
@@ -18,8 +23,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	
 	@Override
-	public List<Employee> getEmployees() {
-		return empRepository.findAll();
+	public List<Employee> getEmployees(int pageNumber, int pageSize) {
+		//Pageable pages = PageRequest.of(pageNumber, pageSize); --> ohne Sortierung 
+		Pageable pages = PageRequest.of(pageNumber, pageSize, Direction.DESC, "id"); 
+		return empRepository.findAll(pages).getContent();
 	}
 
 
@@ -65,11 +72,22 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 	@Override
 	public List<Employee> getEmployeesByKeyword(String name) {
-		return empRepository.findBynameContaining(name);
+		Sort sort = Sort.by(Sort.Direction.ASC, "id"); // Sort kann auch weggelassen werden, wenn keine Sortierung notwendig ist
+		return empRepository.findBynameContaining(name, sort);
 	}
-	
-	
-	
+
+
+	@Override
+	public List<Employee> getEmployeesByNameOrLocation(String name, String location) {
+		return empRepository.getEmployeesBynameAndLocation(name, location);
+	}
+
+
+	@Override
+	public Integer deleteByEmployeeName(String name) {
+		return empRepository.deleteEmployeeByName(name);
+	}
+
 	
 }
 

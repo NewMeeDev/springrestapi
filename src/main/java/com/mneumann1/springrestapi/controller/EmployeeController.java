@@ -40,8 +40,8 @@ public class EmployeeController {
 
 	//localhost:8080/api/v1/employees
 	@GetMapping("/employees")
-	public ResponseEntity<List<Employee>> getEmployees() {
-		return new ResponseEntity<List<Employee>>(empService.getEmployees(), HttpStatus.OK);
+	public ResponseEntity<List<Employee>> getEmployees(@RequestParam int pageNumber, @RequestParam int pageSize ) {
+		return new ResponseEntity<List<Employee>>(empService.getEmployees(pageNumber, pageSize), HttpStatus.OK);
 	}
 
 	//localhost:8080/api/v1/employees/1234
@@ -83,4 +83,15 @@ public class EmployeeController {
 	public ResponseEntity<List<Employee>> getEmployeesByKeyword(@RequestParam String name) {
 		return new ResponseEntity<List<Employee>>(empService.getEmployeesByKeyword(name), HttpStatus.OK);
 	}
+	
+	@GetMapping("employees/{name}/{location}")
+	public ResponseEntity<List<Employee>> getEmployeesByNameAndLocation(@PathVariable String name, @PathVariable String location) {
+		return new ResponseEntity<List<Employee>>(empService.getEmployeesByNameOrLocation(name, location), HttpStatus.OK);
+	}
+	
+	@DeleteMapping("employees/delete/{name}")
+	public ResponseEntity<String> deleteEmployeeByName(@PathVariable String name) {
+		return new ResponseEntity<String>(empService.deleteByEmployeeName(name) + " No. of records deleted", HttpStatus.OK);
+	}
+	
 }

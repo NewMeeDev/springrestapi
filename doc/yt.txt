@@ -1,2 +1,7 @@
 https://www.youtube.com/watch?v=99mxjnzR3Tc
-3:21:20
+
+
+3:30:20 - sorting responses
+3:33:47 - sorting paged responses
+3:37:16 - filtering responses by SQL-Query and OR-combined Params --> getEmployeesByNameOrLocation
+3:47:08 - deleteEmployeeByName
