@@ -27,12 +27,12 @@ public interface EmployeeRepository extends PagingAndSortingRepository<Employee,
 	List<Employee> findBynameContaining(String keyword, Sort sort);
 	
 	// SELECT * FROM table WHERE name = 'Name' OR location = 'Location'
-	@Query("FROM tbl_employee WHERE name = :name OR location = :location")
+	@Query("FROM Employee WHERE name = :name OR location = :location")
 	List<Employee> getEmployeesBynameAndLocation(@Param("name") String name, @Param("location") String location);
 	
 	@Transactional
 	@Modifying
-	@Query("DELETE FROM tbl_employee WHERE name = :name")
-	int deleteEmployeeByName(String name);
+	@Query("DELETE FROM Employee WHERE name = :name")
+	int deleteEmployeeByName(@Param("name") String name);
 	
 }

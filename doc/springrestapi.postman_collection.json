@@ -192,6 +192,44 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "Read Employees by Name or Location",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees/blablabla/germany",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"blablabla",
+						"germany"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete by Name",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees/delete/Max Lange",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"delete",
+						"Max Lange"
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
