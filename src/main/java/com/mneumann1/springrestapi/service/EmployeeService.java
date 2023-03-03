@@ -7,7 +7,7 @@ import com.mneumann1.springrestapi.model.Employee;
 
 public interface EmployeeService {
 
-	List<Employee> getEmployees(int pageNumber, int pageSize);
+	List<Employee> getEmployees();
 	
 	Employee getSingleEmployee(Long id);
 	

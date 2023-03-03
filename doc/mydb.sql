@@ -6,8 +6,8 @@ use mydb;
 
 -- einen Admin-User anlegen
 create user 'neumee'@'%' identified by 'H@16bed7'; -- Creates the user
-
 -- dem Admin-User alle Rechte auf die gerade angelegte DB geben
+
 grant all on mydb.* to 'neumee'@'%';
 
 
@@ -16,6 +16,7 @@ create user 'springuser'@'%' identified by '#EBIT2022'; -- Creates the user
 
 -- dem Springboot User alle Rechte auf die gerade angelegte DB geben
 grant all on mydb.* to 'springuser'@'%';
+
 
 create table tbl_employee 
 ( 
@@ -26,6 +27,8 @@ location varchar(255) not null,
 email varchar(255) not null,
 department varchar(255) not null
 )
+
+drop table tbl_employee; 
 
 insert into tbl_employee (name, age, location, email, department, created_at) 
 values ('Maxi Lange', 28, 'Germany', 'leckme@web.de', 'HR', CURDATE());
@@ -47,4 +50,9 @@ grant select, insert, delete, update on mydb.* to 'springuser'@'%';
 
 select * from tbl_employee;
 
--- drop table tbl_employee 
+-- delete from tbl_employee;
+
+-- drop table tbl_employee;
+-- drop table tbl_department; 
+
+select * from tbl_department 

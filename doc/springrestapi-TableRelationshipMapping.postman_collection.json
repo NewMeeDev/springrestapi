@@ -1,0 +1,130 @@
+{
+	"info": {
+		"_postman_id": "8e722954-b0e7-486b-a81b-1ed070d96ad0",
+		"name": "springrestapi-TableRelationshipMapping",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delete Employee",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees?id=17",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read all Employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees?pageNumber=0&pageSize=100",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees"
+					],
+					"query": [
+						{
+							"key": "pageNumber",
+							"value": "0"
+						},
+						{
+							"key": "pageSize",
+							"value": "100"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Read Employee",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{url}}/employees/2",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create employee",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\" : \"Marc Neumann\", \r\n    \"age\" : 45, \r\n    \"location\": \"Germany\", \r\n    \"email\": \"marc@gmx.com\", \r\n    \"department\" : \"IT\" \r\n    \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/employees",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Employee",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"name\": \"Ursula Meier\",\r\n        \"age\": 56,\r\n        \"location\": \"Italy\",\r\n        \"email\": \"ursel@gmx.com\",\r\n        \"department\": \"IT\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{url}}/employees/3",
+					"host": [
+						"{{url}}"
+					],
+					"path": [
+						"employees",
+						"3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -23,10 +23,9 @@ public class EmployeeServiceImpl implements EmployeeService {
 	
 	
 	@Override
-	public List<Employee> getEmployees(int pageNumber, int pageSize) {
-		//Pageable pages = PageRequest.of(pageNumber, pageSize); --> ohne Sortierung 
-		Pageable pages = PageRequest.of(pageNumber, pageSize, Direction.DESC, "id"); 
-		return empRepository.findAll(pages).getContent();
+	public List<Employee> getEmployees() {
+
+		return empRepository.findAll();//.getContent();
 	}
 
 	
