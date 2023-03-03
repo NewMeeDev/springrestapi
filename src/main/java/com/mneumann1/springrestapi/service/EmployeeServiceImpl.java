@@ -29,13 +29,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 		return empRepository.findAll(pages).getContent();
 	}
 
-
-	@Override
-	public Employee saveEmployee(Employee employee) {
-		return empRepository.save(employee);
-	}
 	
-
 	@Override
 	public Employee getSingleEmployee(Long id) {
 		Optional<Employee> employee = empRepository.findById(id);
@@ -44,51 +38,24 @@ public class EmployeeServiceImpl implements EmployeeService {
 		}
 		throw new RuntimeException("Employee is not found for the id " + id);
 	}
-
+	
 
 	@Override
-	public void deleteEmployee(Long id) {
-		empRepository.deleteById(id);
+	public Employee saveEmployee(Employee employee) {
+		return empRepository.save(employee);
 	}
-
+	
 
 	@Override
 	public Employee udateEmployee(Employee employee) {
 		return empRepository.save(employee);
 	}
-
-
-	@Override
-	public List<Employee> getEmployeesByName(String name) {
-		return empRepository.findByName(name);
-	}
-
-
-	@Override
-	public List<Employee> getEmployeesByNameAndLocation(String name, String location) {
-		return empRepository.findByNameAndLocation(name, location);
-	}
-
-
-	@Override
-	public List<Employee> getEmployeesByKeyword(String name) {
-		Sort sort = Sort.by(Sort.Direction.ASC, "id"); // Sort kann auch weggelassen werden, wenn keine Sortierung notwendig ist
-		return empRepository.findBynameContaining(name, sort);
-	}
-
-
-	@Override
-	public List<Employee> getEmployeesByNameOrLocation(String name, String location) {
-		return empRepository.getEmployeesBynameAndLocation(name, location);
-	}
-
-
-	@Override
-	public Integer deleteByEmployeeName(String name) {
-		return empRepository.deleteEmployeeByName(name);
-	}
-
 	
+	
+	@Override
+	public void deleteEmployee(Long id) {
+		empRepository.deleteById(id);
+	}	
 	
 }
 

@@ -9,22 +9,13 @@ public interface EmployeeService {
 
 	List<Employee> getEmployees(int pageNumber, int pageSize);
 	
-	Employee saveEmployee(Employee employee);
-	
 	Employee getSingleEmployee(Long id);
 	
-	void deleteEmployee(Long id);
+	Employee saveEmployee(Employee employee);
 	
 	Employee udateEmployee(Employee employee);
 	
-	List<Employee> getEmployeesByName(String name); 
+	void deleteEmployee(Long id);
 	
-	List<Employee> getEmployeesByNameAndLocation(String name, String location); 
-	
-	List<Employee> getEmployeesByKeyword(String name);
-	
-	List<Employee> getEmployeesByNameOrLocation(String name, String location);
-	
-	Integer deleteByEmployeeName(String name);
 
 }

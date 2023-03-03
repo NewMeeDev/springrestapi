@@ -26,17 +26,6 @@ public class EmployeeController {
 	@Autowired
 	private EmployeeService empService;
 	
-	@Value("${app.name: Employee Tracker}") // Unterlassungswert
-	private String appName;
-	
-	@Value("${app.version}")
-	private String appVersion;
-	
-	//localhost:8080/api/v1/version
-	@GetMapping("/version")
-	public String getAppdetails() {
-		return appName + " (" + appVersion + ")";
-	}
 
 	//localhost:8080/api/v1/employees
 	@GetMapping("/employees")
@@ -67,31 +56,6 @@ public class EmployeeController {
 	@DeleteMapping("/employees")
 	public ResponseEntity<HttpStatus> deleteEmployee(@RequestParam("id") Long id) {
 		return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
-	}
-	
-	@GetMapping("employees/filterByName")
-	public ResponseEntity<List<Employee>> getEmployeesByName(@RequestParam String name) {
-		return new ResponseEntity<List<Employee>>(empService.getEmployeesByName(name), HttpStatus.OK);
-	}
-	
-	@GetMapping("employees/filterByNameAndLocation")
-	public ResponseEntity<List<Employee>> getEmployeesByName(@RequestParam String name, @RequestParam String location) {
-		return new ResponseEntity<List<Employee>>(empService.getEmployeesByNameAndLocation(name, location), HttpStatus.OK);
-	}
-	
-	@GetMapping("employees/filterByKeyword")
-	public ResponseEntity<List<Employee>> getEmployeesByKeyword(@RequestParam String name) {
-		return new ResponseEntity<List<Employee>>(empService.getEmployeesByKeyword(name), HttpStatus.OK);
-	}
-	
-	@GetMapping("employees/{name}/{location}")
-	public ResponseEntity<List<Employee>> getEmployeesByNameAndLocation(@PathVariable String name, @PathVariable String location) {
-		return new ResponseEntity<List<Employee>>(empService.getEmployeesByNameOrLocation(name, location), HttpStatus.OK);
-	}
-	
-	@DeleteMapping("employees/delete/{name}")
-	public ResponseEntity<String> deleteEmployeeByName(@PathVariable String name) {
-		return new ResponseEntity<String>(empService.deleteByEmployeeName(name) + " No. of records deleted", HttpStatus.OK);
 	}
 	
 }
