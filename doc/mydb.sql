@@ -27,14 +27,14 @@ email varchar(255) not null,
 department varchar(255) not null
 )
 
-insert into tbl_employee (name, age, location, email, department) 
-values ('Maxi Lange', 28, 'Germany', 'leckme@web.de', 'HR');
+insert into tbl_employee (name, age, location, email, department, created_at) 
+values ('Maxi Lange', 28, 'Germany', 'leckme@web.de', 'HR', CURDATE());
 
-insert into tbl_employee (name, age, location, email, department) 
-values ('Frieda Friedrich', 68, 'Hungary', 'lefried@web.de', 'Service');
+insert into tbl_employee (name, age, location, email, department, created_at) 
+values ('Frieda Friedrich', 68, 'Hungary', 'lefried@web.de', 'Service', CURDATE());
 
-insert into tbl_employee (name, age, location, email, department) 
-values ('Marc Neumann', 45, 'Germany', 'neumee@web.de', 'IT');
+insert into tbl_employee (name, age, location, email, department, created_at) 
+values ('Marc Neumann', 45, 'Germany', 'neumee@web.de', 'IT', CURDATE());
 
 
 -- wenn die Anwendung läuft, sollte man dem Springboot User alle Rechte
