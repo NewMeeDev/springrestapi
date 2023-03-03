@@ -5,4 +5,5 @@ https://www.youtube.com/watch?v=99mxjnzR3Tc
 3:33:47 - sorting paged responses
 3:37:16 - filtering responses by SQL-Query and OR-combined Params --> getEmployeesByNameOrLocation
 3:47:08 - deleteEmployeeByName
-3:57:50 - handle DB-Entity-Relationships with JPA
+3:57:50 - handle DB-Entity-Relationships with JPA - one to one
+4:10:17 - one to many
